@@ -6,8 +6,12 @@ export interface LineItem {
     productCode?: string | null;
     category?: string;
     subcategory?: string;
-    rawText?: string; // For debugging and fallback
+    cleanDescription?: string;
+    aiConfidence?: number;
+    aiCategorized?: boolean;
+    rawText?: string;
 }
+
 
 export interface InvoiceData {
     supplier: string | null;
@@ -16,7 +20,11 @@ export interface InvoiceData {
     invoiceNumber: string | null;
     lineItems: LineItem[];
     confidence?: number;
-    rawText?: string; // For debugging
+    rawText?: string;
+    currency?: string;
+    paymentTerms?: string;
+    invoiceType?: string;
+    aiEnhanced?: boolean;
 }
 
 export interface ProcessingResult {
